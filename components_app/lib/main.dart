@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:components_app/screens/screens.dart';
-
+import 'package:components_app/router/app_routes.dart';
 
 void main() => runApp(MyApp());
 
@@ -14,15 +13,9 @@ class MyApp extends StatelessWidget {
     return  MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Material App',
-      initialRoute: 'home',
-      routes: {
-        'home': (BuildContext context) => const HomeScreen(),
-        'listview': (BuildContext context) => const ListviewScreen(),
-        'listview2': (BuildContext context) => const ListviewScreen2(),
-        'alert': (BuildContext context) => const AlertScreen(),
-        'card': (BuildContext context) => const CardScreen(),
-
-      },
+      initialRoute: AppRoutes.initialRoute,
+      routes: AppRoutes.getAppRoutes(),
+      onGenerateRoute: AppRoutes.onGenerateRoute
     );
   }
 }
